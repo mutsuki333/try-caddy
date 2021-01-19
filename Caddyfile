@@ -1,0 +1,11 @@
+mac {
+    encode zstd gzip
+    tls internal
+    root * /var/www
+    file_server
+}
+
+localhost {
+    root * /usr/share/caddy
+    file_server
+}

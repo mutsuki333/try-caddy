@@ -1,0 +1,23 @@
+version: "3.9"
+services:
+  caddy:
+    image: caddy:2.3.0-alpine
+    container_name: caddy
+    command: caddy run
+    restart: "always"
+    ports:
+      - "80:80"
+      - "443:443"
+      - "2019:2019"
+    volumes:
+      - ./Caddyfile:/srv/Caddyfile
+      - data:/data
+      
+      - ~/Documents/code/Notes:/var/www/docs
+      - ~/evan@work/notes:/var/www/notes
+networks:
+  default:
+    external:
+      name: caddy
+volumes: 
+  data:
